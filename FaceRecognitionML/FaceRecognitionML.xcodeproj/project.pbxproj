@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70277952B9680F30090E94D /* FaceDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70277942B9680F30090E94D /* FaceDetectionView.swift */; };
 		F7C790062B902E7F00EBA3C8 /* FaceRecognitionMLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C790052B902E7F00EBA3C8 /* FaceRecognitionMLApp.swift */; };
-		F7C790082B902E7F00EBA3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C790072B902E7F00EBA3C8 /* ContentView.swift */; };
 		F7C7900A2B902E8200EBA3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C790092B902E8200EBA3C8 /* Assets.xcassets */; };
 		F7C7900D2B902E8200EBA3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C7900C2B902E8200EBA3C8 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F70277942B9680F30090E94D /* FaceDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionView.swift; sourceTree = "<group>"; };
 		F7C790022B902E7F00EBA3C8 /* FaceRecognitionML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceRecognitionML.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C790052B902E7F00EBA3C8 /* FaceRecognitionMLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecognitionMLApp.swift; sourceTree = "<group>"; };
-		F7C790072B902E7F00EBA3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7C790092B902E8200EBA3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7C7900C2B902E8200EBA3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,8 +51,8 @@
 		F7C790042B902E7F00EBA3C8 /* FaceRecognitionML */ = {
 			isa = PBXGroup;
 			children = (
+				F70277942B9680F30090E94D /* FaceDetectionView.swift */,
 				F7C790052B902E7F00EBA3C8 /* FaceRecognitionMLApp.swift */,
-				F7C790072B902E7F00EBA3C8 /* ContentView.swift */,
 				F7C790092B902E8200EBA3C8 /* Assets.xcassets */,
 				F7C7900B2B902E8200EBA3C8 /* Preview Content */,
 			);
@@ -137,8 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7C790082B902E7F00EBA3C8 /* ContentView.swift in Sources */,
 				F7C790062B902E7F00EBA3C8 /* FaceRecognitionMLApp.swift in Sources */,
+				F70277952B9680F30090E94D /* FaceDetectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
