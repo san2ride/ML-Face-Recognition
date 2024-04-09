@@ -8,6 +8,7 @@
 import SwiftUI
 import Vision
 
+@MainActor
 struct FaceDetectionView: View {
     
     let photos = ["face","friends-sitting","people-sitting","ball","bird"]
@@ -15,7 +16,7 @@ struct FaceDetectionView: View {
     @State private var currentIndex: Int = 0
     @State private var classificationLabel: String = ""
     
-    private func detectFaces(completion: @escaping ([VNFaceObservation]?) -> Void) {
+    private func detectFaces(completion: @MainActor @escaping ([VNFaceObservation]?) -> Void) {
         guard let image = UIImage(named: photos[currentIndex]),
               let cgImage = image.cgImage,
               let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
@@ -26,14 +27,22 @@ struct FaceDetectionView: View {
         let handler = VNImageRequestHandler(cgImage: cgImage,
                                             orientation: orientation,
                                             options: [:])
-        DispatchQueue.global().async {
-            try? handler.perform([request])
-            
-            guard let observations = request.results else {
-                return completion(nil)
+            Task {
+                try? handler.perform([request])
+                
+                guard let observations = request.results else {
+                    return completion(nil)
+                }
+                completion(observations)
             }
-            completion(observations)
-        }
+//        DispatchQueue.global().async {
+//            try? handler.perform([request])
+//            
+//            guard let observations = request.results else {
+//                return completion(nil)
+//            }
+//            completion(observations)
+//        }
     }
     
     var body: some View {
@@ -51,7 +60,7 @@ struct FaceDetectionView: View {
                     }
                     
                     }.padding()
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.red)
                     .background(Color.gray)
                     .cornerRadius(10)
                     .frame(width: 100)
@@ -64,31 +73,32 @@ struct FaceDetectionView: View {
                     }
                 }
                 .padding()
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.blue)
                 .frame(width: 100)
                 .background(Color.gray)
                 .cornerRadius(10)
             
             }.padding()
-            
             Button("Classify") {
                 // classify the image here
                 self.detectFaces { results in
                     if let results = results {
                         // update the UI
+//                        Task {
+//                            classificationLabel = "Faces: \(results.count)"
+//                        }
                         DispatchQueue.main.async {
                             self.classificationLabel = "Faces: \(results.count)"
-                            print(classificationLabel)
                         }
                     }
                 }
-                
             }.padding()
-            .foregroundColor(Color.white)
+                .foregroundColor(Color.black)
             .background(Color.green)
             .cornerRadius(8)
             
             Text(classificationLabel)
+                .font(.title)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Vision
 
 @main
 struct FaceRecognitionMLApp: App {
